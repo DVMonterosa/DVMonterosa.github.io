@@ -31,8 +31,6 @@ module.exports = {
             {
                 test: /\.css$/,
                 include: helpers.root('src'),
-
-                // exclude: helpers.root('src', 'app'),
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
             },
             {
@@ -43,6 +41,14 @@ module.exports = {
                 test: /\.scss$/,
                 include: helpers.root('src/app'),
                 loader: 'raw!postcss!sass'
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "url-loader?limit=10000&mimetype=application/font-woff"
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader"
             }
         ]
     },
