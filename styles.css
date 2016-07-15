@@ -1,7 +1,7 @@
 
 * {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;*/
+  /*backface-visibility: hidden;*/
 }
 
 body {
@@ -11,7 +11,13 @@ body {
 .wrapper {
   display: block;
   background: #b5f7fa;
-  padding: 15px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /*padding: 15px;*/
   /*bottom: 0;*/
 }
 
@@ -37,8 +43,8 @@ body {
   -webkit-transition: width 10s linear;
   transition: width 10s linear;
 
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;*/
+  /*backface-visibility: hidden;*/
 }
 
 .buttons-block {

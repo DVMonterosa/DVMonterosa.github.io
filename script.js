@@ -1,3 +1,5 @@
+
+
 //$(function () {
 //	var way = false;
 //	var timer;
@@ -41,7 +43,14 @@
 //	tadam();
 //});
 
+
 $(function () {
+	var myScroll = new IScroll('#wrapper',{
+		mouseWheel: true,
+		scrollbars: true
+	});
+
+
 	var percent = 0;
 	var progress = $('.progress');
 	//
@@ -63,5 +72,4 @@ $(function () {
 
 	inc();
 });
-
 
