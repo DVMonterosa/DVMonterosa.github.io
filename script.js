@@ -47,7 +47,8 @@
 $(function () {
 	var myScroll = new IScroll('#wrapper',{
 		mouseWheel: true,
-		scrollbars: true
+		scrollbars: true,
+		bounce: false
 	});
 
 
