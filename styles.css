@@ -34,6 +34,9 @@ body {
   -o-transition: width 1s linear;
   -webkit-transition: width 1s linear;
   transition: width 1s linear;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .buttons-block {
