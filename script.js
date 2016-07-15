@@ -22,7 +22,6 @@ $(function () {
 
 	function inc() {
 		percent++;
-		percent++;
 
 		if (percent < 100) {
 			renderBar();
@@ -32,7 +31,6 @@ $(function () {
 	}
 
 	function dec() {
-		percent--;
 		percent--;
 
 		if (percent > 0) {
