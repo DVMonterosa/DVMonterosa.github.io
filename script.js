@@ -42,8 +42,6 @@
 //});
 
 $(function () {
-	var way = false;
-	var timer;
 	var percent = 0;
 	var progress = $('.progress');
 	//
@@ -52,36 +50,18 @@ $(function () {
 	}
 
 	function inc() {
-		percent += 10;
-
-		if (percent <= 100) {
-			renderBar();
-		} else {
-			tadam()
-		}
+		percent = 100;
+		renderBar();
+		setTimeout(dec, 10000)
 	}
 
 	function dec() {
-		percent -= 10;
-
-		if (percent >= 0) {
-			renderBar();
-		} else {
-			tadam()
-		}
+		percent = 0;
+		renderBar();
+		setTimeout(inc, 10000)
 	}
 
-	function tadam() {
-		clearInterval(timer);
-
-		if (way = !way) {
-			timer = setInterval(inc, 1000);
-		} else {
-			timer = setInterval(dec, 1000);
-		}
-	}
-
-	tadam();
+	inc();
 });
 
 
