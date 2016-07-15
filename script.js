@@ -23,8 +23,6 @@ $(function () {
 	function inc() {
 		percent += .1;
 
-		console.log(percent)
-
 		if (percent < 100) {
 			renderBar();
 		} else {
