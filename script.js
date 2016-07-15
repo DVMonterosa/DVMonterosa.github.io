@@ -21,7 +21,9 @@ $(function () {
 	}
 
 	function inc() {
-		percent++;
+		percent += .1;
+
+		console.log(percent)
 
 		if (percent < 100) {
 			renderBar();
@@ -31,7 +33,7 @@ $(function () {
 	}
 
 	function dec() {
-		percent--;
+		percent -= .1;
 
 		if (percent > 0) {
 			renderBar();
@@ -44,9 +46,9 @@ $(function () {
 		clearInterval(timer);
 
 		if (way = !way) {
-			timer = setInterval(inc, 100)
+			timer = setInterval(inc, 10)
 		} else {
-			timer = setInterval(dec, 100)
+			timer = setInterval(dec, 10)
 		}
 	}
 
