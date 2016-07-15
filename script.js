@@ -45,7 +45,7 @@
 
 
 $(function () {
-	$('#wrapper').simplebar();
+	$('#wrapper').niceScroll();
 
 	var percent = 0;
 	var progress = $('.progress');

@@ -27,6 +27,10 @@ body {
   background: #dcb65d;
 }
 
+.content iframe {
+  width: 100%;
+}
+
 .progress-bar {
   background: #ffffff;
   margin: 5px 0;
