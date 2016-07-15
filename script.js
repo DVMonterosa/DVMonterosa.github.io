@@ -45,13 +45,7 @@
 
 
 $(function () {
-	var myScroll = new IScroll('#wrapper',{
-		mouseWheel: true,
-		scrollbars: true,
-		bounce: false,
-		interactiveScrollbars: true
-	});
-
+	$('#wrapper').simplebar();
 
 	var percent = 0;
 	var progress = $('.progress');
