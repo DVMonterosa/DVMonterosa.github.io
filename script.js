@@ -49,7 +49,8 @@ $(function () {
 		mouseWheel: true,
 		scrollbars: true,
 		bounce: false,
-		interactiveScrollbars: true
+		interactiveScrollbars: true,
+		useTransform: false
 	});
 
 
