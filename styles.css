@@ -12,7 +12,7 @@ body {
   display: block;
   background: #b5f7fa;
   position: absolute;
-  overflow: hidden;
+  overflow-y: scroll;
   top: 0;
   bottom: 0;
   right: 0;

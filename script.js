@@ -45,12 +45,15 @@
 
 
 $(function () {
-	var myScroll = new IScroll('#wrapper',{
-		mouseWheel: true,
-		scrollbars: true,
-		bounce: true,
-		interactiveScrollbars: true
-	});
+	//var myScroll = new IScroll('#wrapper',{
+	//	mouseWheel: true,
+	//	scrollbars: true,
+	//	bounce: true,
+	//	//interactiveScrollbars: true,
+	//	useTransform: true,
+	//	disablePointer: true,
+	//	disableTouch: true
+	//});
 
 
 	var percent = 0;
@@ -74,4 +77,15 @@ $(function () {
 
 	inc();
 });
+
+//$(function(){
+//	var iframe = $('#frames');
+//	debugger
+//
+//	iframe.on('load',function (e){
+//		iframe.on('scroll', function(e){
+//			debugger
+//		})
+//	});
+//});
 
