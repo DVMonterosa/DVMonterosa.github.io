@@ -17,6 +17,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+  -webkit-overflow-scrolling: touch;
   /*padding: 15px;*/
   /*bottom: 0;*/
 }
