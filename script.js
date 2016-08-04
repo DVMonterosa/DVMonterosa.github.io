@@ -90,16 +90,15 @@ let App = React.createClass({
       let shiftBeta;
       let shiftGamma;
 
-      if ((Math.abs(beta) > 87)) {
+      if ((Math.abs(beta) < 87)) {
         shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-      } else if (Math.abs(beta) < 93) {
+      } else if (Math.abs(beta) > 93) {
         shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
       } else {
         return;
       }
 
       shiftBeta = this.getDegreeSin(beta) * NIMBLE_RANGE;
-
 
       if (window.orientation) {
         this.setState({
