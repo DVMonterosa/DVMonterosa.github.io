@@ -14,7 +14,23 @@ let App = React.createClass({
   render: function () {
     return (
       <div className="wrapper">
+
+
         <div className="logger-1">
+          <p>
+            ALPHA: {this.state.alpha}
+          </p>
+
+          <p>
+            cos: {this.cos(this.state.alpha)}
+          </p>
+
+          <p>
+            sin: {this.sin(this.state.alpha)}
+          </p>
+
+          <br></br>
+
           <p>
             BETA: {this.state.beta}
           </p>
@@ -28,6 +44,7 @@ let App = React.createClass({
           </p>
 
         </div>
+
         <div className="logger-2">
           <p>
             GAMMA: {this.state.gamma},
