@@ -62,7 +62,8 @@ let App = React.createClass({
             sin: {this.sin(this.state.gamma)}
           </p>
         </div>
-        <div className="nimble">
+        <div className="nimble"
+             style={{transform: `translate3d(${-this.state.shiftX}px, ${-this.state.shiftY}px, 0)`}}>
           <div className="img_wrapper">
             <img src="white-eye.png" alt="Logo" ref="interactive"/>
           </div>
@@ -86,19 +87,29 @@ let App = React.createClass({
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.frame = requestAnimationFrame(()=> {
 
-      if ((Math.abs(beta) > 87) && (Math.abs(beta) < 93)) {
+      let shiftBeta;
+      let shiftGamma;
+
+      if ((Math.abs(beta) > 87)) {
+        shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
+      } else if (Math.abs(beta) < 93) {
+        shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
+      } else {
         return;
       }
 
+      shiftBeta = this.getDegreeSin(beta) * NIMBLE_RANGE;
+
+
       if (window.orientation) {
         this.setState({
-          shiftX: this.getDegreeSin(beta) * NIMBLE_RANGE,
-          shiftY: this.getDegreeSin(gamma * 2) * NIMBLE_RANGE
+          shiftX: shiftBeta,
+          shiftY: shiftGamma
         });
       } else {
         this.setState({
-          shiftY: this.getDegreeSin(beta) * NIMBLE_RANGE,
-          shiftX: this.getDegreeSin(gamma * 2) * NIMBLE_RANGE
+          shiftY: shiftBeta,
+          shiftX: shiftGamma
         });
       }
     });
