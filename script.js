@@ -90,9 +90,9 @@ let App = React.createClass({
       let shiftBeta;
       let shiftGamma;
 
-      if ((Math.abs(beta) < 87)) {
+      if ((Math.abs(beta) < 70)) {
         shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-      } else if (Math.abs(beta) > 93) {
+      } else if (Math.abs(beta) > 110) {
         shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
       } else {
         return;
