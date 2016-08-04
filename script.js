@@ -87,7 +87,7 @@ let App = React.createClass({
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.frame = requestAnimationFrame(()=> {
 
-      if (Math.abs(beta) > 88) {
+      if ((Math.abs(beta) > 87) && (Math.abs(beta) < 93)) {
         return;
       }
 
