@@ -1,4 +1,16 @@
 let App = React.createClass({
+  cos: function (angel) {
+    return Math.cos(this.toRadian(angel)).toFixed(2);
+  },
+
+  sin: function (angel) {
+    return Math.sin(this.toRadian(angel)).toFixed(2);
+  },
+
+  toRadian: function (angel) {
+    return angel * Math.PI / 360;
+  },
+
   render: function () {
     return (
       <div className="wrapper">
@@ -8,11 +20,11 @@ let App = React.createClass({
           </p>
 
           <p>
-            cos: {Math.cos(this.state.beta).toFixed(2)}
+            cos: {this.cos(this.state.beta)}
           </p>
 
           <p>
-            sin: {Math.sin(this.state.beta).toFixed(2)}
+            sin: {this.sin(this.state.beta)}
           </p>
 
         </div>
@@ -22,11 +34,11 @@ let App = React.createClass({
           </p>
 
           <p>
-            cos: {Math.cos(this.state.gamma).toFixed(2)}
+            cos: {this.cos(this.state.gamma).toFixed(2)}
           </p>
 
           <p>
-            sin: {Math.sin(this.state.gamma).toFixed(2)}
+            sin: {this.sin(this.state.gamma).toFixed(2)}
           </p>
         </div>
         <div className="nimble">
