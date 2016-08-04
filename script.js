@@ -86,6 +86,10 @@ let App = React.createClass({
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.frame = requestAnimationFrame(()=> {
+      if (Math.abs(beta) > 88) {
+        return;
+      }
+
       if (window.orientation) {
         this.setState({
           shiftX: this.getDegreeSin(beta) * NIMBLE_RANGE,
