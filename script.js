@@ -85,6 +85,7 @@ let App = React.createClass({
     window.addEventListener('deviceorientation', this.onDeviseOrientation);
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
+/*
     this.frame = requestAnimationFrame(()=> {
 
       let shiftBeta;
@@ -112,6 +113,7 @@ let App = React.createClass({
         });
       }
     });
+*/
 
     this.setState({
       alpha: Math.round(alpha),
