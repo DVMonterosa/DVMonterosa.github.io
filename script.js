@@ -3,11 +3,22 @@ let App = React.createClass({
     return (
       <div className="wrapper">
         <div className="logger">
-          <p>alpha: {this.state.alpha}</p>
-
-          <p>beta: {this.state.beta}</p>
-
-          <p>gamma: {this.state.gamma}</p></div>
+          <p>
+            ALPHA: {this.state.alpha},
+            cos: {Math.round(Math.cos(this.state.alpha))},
+            sin: {Math.round(Math.sin(this.state.alpha))}
+          </p>
+          <p>
+            BETA: {this.state.beta},
+            cos: {Math.round(Math.cos(this.state.beta))},
+            sin: {Math.round(Math.sin(this.state.beta))}
+          </p>
+          <p>
+            GAMMA: {this.state.gamma},
+            cos: {Math.round(Math.cos(this.state.gamma))},
+            sin: {Math.round(Math.sin(this.state.gamma))}
+          </p>
+        </div>
         <div className="nimble">
           <img src="white-eye.png" alt="Logo" ref="interactive"/>
         </div>
