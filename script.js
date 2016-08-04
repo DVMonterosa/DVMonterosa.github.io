@@ -85,6 +85,10 @@ let App = React.createClass({
     window.addEventListener('deviceorientation', this.onDeviseOrientation);
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
+    this.setState({
+      shiftX: this.sin(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
+      shiftY: this.sin(beta) * NIMBLE_RANGE
+    });
     /*
      this.frame = requestAnimationFrame(()=> {
 
@@ -120,9 +124,6 @@ let App = React.createClass({
       beta: Math.round(beta),
       gamma: Math.round(2 * gamma)
     });
-  },
-  getDegreeSin: function (angel) {
-    return Math.sin(Math.PI * angel / 180).toFixed(3)
   }
 });
 
