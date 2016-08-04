@@ -62,8 +62,7 @@ let App = React.createClass({
             sin: {this.sin(this.state.gamma)}
           </p>
         </div>
-        <div className="nimble"
-             style={{transform: `translate3d(${-this.state.shiftX}px, ${-this.state.shiftY}px, 0)`}}>
+        <div className="nimble">
           <div className="img_wrapper">
             <img src="white-eye.png" alt="Logo" ref="interactive"/>
           </div>
