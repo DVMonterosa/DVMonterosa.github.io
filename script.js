@@ -1,6 +1,6 @@
 const BETA_RANGE = 180;
 const GAMMA_RANGE = 90;
-const NIMBLE_RANGE = 20;
+const NIMBLE_RANGE = 50;
 
 let App = React.createClass({
   frame: null,
