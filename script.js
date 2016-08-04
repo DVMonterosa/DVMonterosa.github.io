@@ -1,4 +1,10 @@
+const BETA_RANGE = 180;
+const GAMMA_RANGE = 90;
+const NIMBLE_RANGE = 20;
+
 let App = React.createClass({
+  frame: null,
+
   cos: function (angel) {
     return Math.cos(this.toRadian(angel)).toFixed(2);
   },
@@ -14,8 +20,6 @@ let App = React.createClass({
   render: function () {
     return (
       <div className="wrapper">
-
-
         <div className="logger-1">
           <p>
             ALPHA: {this.state.alpha}
@@ -47,7 +51,7 @@ let App = React.createClass({
 
         <div className="logger-2">
           <p>
-            GAMMA: {this.state.gamma},
+            GAMMA: {this.state.gamma}
           </p>
 
           <p>
@@ -58,7 +62,8 @@ let App = React.createClass({
             sin: {this.sin(this.state.gamma)}
           </p>
         </div>
-        <div className="nimble">
+        <div className="nimble"
+             style={{transform: `translate3d(${-x}px, ${-y}px, ${-z}px)`}}>
           <div className="img_wrapper">
             <img src="white-eye.png" alt="Logo" ref="interactive"/>
           </div>
@@ -66,22 +71,42 @@ let App = React.createClass({
       </div>
     )
   },
+
   getInitialState: function () {
     return {
       alpha: 0,
       beta: 0,
-      gamma: 0
+      gamma: 0,
+      shiftX: 0,
+      shiftY: 0
     }
   },
   componentDidMount: function () {
     window.addEventListener('deviceorientation', this.onDeviseOrientation);
   },
-  onDeviseOrientation: function (event) {
-    this.setState({
-      alpha: Math.round(event.alpha),
-      beta: Math.round(event.beta),
-      gamma: Math.round(event.gamma)
+  onDeviseOrientation: function ({alpha,beta,gamma}) {
+    this.frame = requestAnimationFrame(()=> {
+      if (window.orientation) {
+        this.setState({
+          shiftX: this.getDegreeSin(beta) * NIMBLE_RANGE,
+          shiftY: this.getDegreeSin(gamma * 2) * NIMBLE_RANGE
+        });
+      } else {
+        this.setState({
+          shiftY: this.getDegreeSin(beta) * NIMBLE_RANGE,
+          shiftX: this.getDegreeSin(gamma * 2) * NIMBLE_RANGE
+        });
+      }
     });
+
+    this.setState({
+      alpha: Math.round(alpha),
+      beta: Math.round(beta),
+      gamma: Math.round(gamma)
+    });
+  },
+  getDegreeSin: function (angel) {
+    return Math.sin(Math.PI * angel / 180).toFixed(3)
   }
 });
 
@@ -89,14 +114,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
-
-/*          <p>
- ALPHA: {this.state.alpha},
- cos: {Math.cos(this.state.alpha).toFixed(3)},
- sin: {Math.sin(this.state.alpha).toFixed(3)}
- </p>
- <p>
- BETA: {this.state.beta},
- cos: {Math.cos(this.state.beta).toFixed(3)},
- sin: {Math.sin(this.state.beta).toFixed(3)}
- </p>*/
