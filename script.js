@@ -2,25 +2,37 @@ let App = React.createClass({
   render: function () {
     return (
       <div className="wrapper">
-        <div className="logger">
+        <div className="logger-1">
           <p>
-            ALPHA: {this.state.alpha},
-            cos: {Math.cos(this.state.alpha).toFixed(3)},
-            sin: {Math.sin(this.state.alpha).toFixed(3)}
+            BETA: {this.state.beta}
           </p>
+
           <p>
-            BETA: {this.state.beta},
-            cos: {Math.cos(this.state.beta).toFixed(3)},
-            sin: {Math.sin(this.state.beta).toFixed(3)}
+            cos: {Math.cos(this.state.beta).toFixed(2)}
           </p>
+
+          <p>
+            sin: {Math.sin(this.state.beta).toFixed(2)}
+          </p>
+
+        </div>
+        <div className="logger-2">
           <p>
             GAMMA: {this.state.gamma},
-            cos: {Math.cos(this.state.gamma).toFixed(3)},
-            sin: {Math.sin(this.state.gamma).toFixed(3)}
+          </p>
+
+          <p>
+            cos: {Math.cos(this.state.gamma).toFixed(2)}
+          </p>
+
+          <p>
+            sin: {Math.sin(this.state.gamma).toFixed(2)}
           </p>
         </div>
         <div className="nimble">
-          <img src="white-eye.png" alt="Logo" ref="interactive"/>
+          <div className="img_wrapper">
+            <img src="white-eye.png" alt="Logo" ref="interactive"/>
+          </div>
         </div>
       </div>
     )
@@ -48,3 +60,14 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
+
+/*          <p>
+ ALPHA: {this.state.alpha},
+ cos: {Math.cos(this.state.alpha).toFixed(3)},
+ sin: {Math.sin(this.state.alpha).toFixed(3)}
+ </p>
+ <p>
+ BETA: {this.state.beta},
+ cos: {Math.cos(this.state.beta).toFixed(3)},
+ sin: {Math.sin(this.state.beta).toFixed(3)}
+ </p>*/
