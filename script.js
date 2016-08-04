@@ -85,40 +85,40 @@ let App = React.createClass({
     window.addEventListener('deviceorientation', this.onDeviseOrientation);
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
-/*
-    this.frame = requestAnimationFrame(()=> {
+    /*
+     this.frame = requestAnimationFrame(()=> {
 
-      let shiftBeta;
-      let shiftGamma;
+     let shiftBeta;
+     let shiftGamma;
 
-      if ((Math.abs(beta) < 70)) {
-        shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-      } else if (Math.abs(beta) > 110) {
-        shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-      } else {
-        return;
-      }
+     if ((Math.abs(beta) < 70)) {
+     shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
+     } else if (Math.abs(beta) > 110) {
+     shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
+     } else {
+     return;
+     }
 
-      shiftBeta = this.getDegreeSin(beta) * NIMBLE_RANGE;
+     shiftBeta = this.getDegreeSin(beta) * NIMBLE_RANGE;
 
-      if (window.orientation) {
-        this.setState({
-          shiftX: shiftBeta,
-          shiftY: shiftGamma
-        });
-      } else {
-        this.setState({
-          shiftY: shiftBeta,
-          shiftX: shiftGamma
-        });
-      }
-    });
-*/
+     if (window.orientation) {
+     this.setState({
+     shiftX: shiftBeta,
+     shiftY: shiftGamma
+     });
+     } else {
+     this.setState({
+     shiftY: shiftBeta,
+     shiftX: shiftGamma
+     });
+     }
+     });
+     */
 
     this.setState({
       alpha: Math.round(alpha),
       beta: Math.round(beta),
-      gamma: Math.round(gamma)
+      gamma: Math.round(2 * gamma)
     });
   },
   getDegreeSin: function (angel) {
