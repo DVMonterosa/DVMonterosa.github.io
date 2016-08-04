@@ -8,7 +8,7 @@ let App = React.createClass({
   },
 
   toRadian: function (angel) {
-    return angel * Math.PI / 360;
+    return angel * Math.PI / 180;
   },
 
   render: function () {
