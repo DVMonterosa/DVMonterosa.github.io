@@ -34,11 +34,11 @@ let App = React.createClass({
           </p>
 
           <p>
-            cos: {this.cos(this.state.gamma).toFixed(2)}
+            cos: {this.cos(this.state.gamma)}
           </p>
 
           <p>
-            sin: {this.sin(this.state.gamma).toFixed(2)}
+            sin: {this.sin(this.state.gamma)}
           </p>
         </div>
         <div className="nimble">
