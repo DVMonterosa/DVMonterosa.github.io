@@ -26,9 +26,9 @@ let App = React.createClass({
   },
   onDeviseOrientation: function (event) {
     this.setState({
-      alpha: event.alpha,
-      beta: event.beta,
-      gamma: event.gamma
+      alpha: Math.round(event.alpha),
+      beta: Math.round(event.beta),
+      gamma: Math.round(event.gamma)
     });
   }
 });
