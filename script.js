@@ -5,18 +5,18 @@ let App = React.createClass({
         <div className="logger">
           <p>
             ALPHA: {this.state.alpha},
-            cos: {Math.round(Math.cos(this.state.alpha))},
-            sin: {Math.round(Math.sin(this.state.alpha))}
+            cos: {Math.cos(this.state.alpha).toString(3)},
+            sin: {Math.sin(this.state.alpha).toString(3)}
           </p>
           <p>
             BETA: {this.state.beta},
-            cos: {Math.round(Math.cos(this.state.beta))},
-            sin: {Math.round(Math.sin(this.state.beta))}
+            cos: {Math.cos(this.state.beta).toString(3)},
+            sin: {Math.sin(this.state.beta).toString(3)}
           </p>
           <p>
             GAMMA: {this.state.gamma},
-            cos: {Math.round(Math.cos(this.state.gamma))},
-            sin: {Math.round(Math.sin(this.state.gamma))}
+            cos: {Math.cos(this.state.gamma).toString(3)},
+            sin: {Math.sin(this.state.gamma).toString(3)}
           </p>
         </div>
         <div className="nimble">
