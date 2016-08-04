@@ -1,91 +1,39 @@
+let App = React.createClass({
+  render: function () {
+    return (
+      <div className="wrapper">
+        <div className="logger">
+          <p>alpha: {this.state.alpha}</p>
 
+          <p>beta: {this.state.beta}</p>
 
-//$(function () {
-//	var way = false;
-//	var timer;
-//	var percent = 0;
-//	var progress = $('.progress');
-//
-//	function renderBar() {
-//		progress.width(percent + '%');
-//	}
-//
-//	function inc() {
-//		percent += .5;
-//
-//		if (percent <= 100) {
-//			renderBar();
-//		} else {
-//			tadam()
-//		}
-//	}
-//
-//	function dec() {
-//		percent -= .5;
-//
-//		if (percent >= 0) {
-//			renderBar();
-//		} else {
-//			tadam()
-//		}
-//	}
-//
-//	function tadam() {
-//		clearInterval(timer);
-//
-//		if (way = !way) {
-//			timer = setInterval(inc, 50)
-//		} else {
-//			timer = setInterval(dec, 50)
-//		}
-//	}
-//
-//	tadam();
-//});
-
-
-$(function () {
-	//var myScroll = new IScroll('#wrapper',{
-	//	mouseWheel: true,
-	//	scrollbars: true,
-	//	bounce: true,
-	//	//interactiveScrollbars: true,
-	//	useTransform: true,
-	//	disablePointer: true,
-	//	disableTouch: true
-	//});
-
-
-	var percent = 0;
-	var progress = $('.progress');
-	//
-	function renderBar() {
-		progress.width(percent + '%');
-	}
-
-	function inc() {
-		percent = 100;
-		renderBar();
-		setTimeout(dec, 10000)
-	}
-
-	function dec() {
-		percent = 0;
-		renderBar();
-		setTimeout(inc, 10000)
-	}
-
-	inc();
+          <p>gamma: {this.state.gamma}</p></div>
+        <div className="nimble">
+          <img src="white-eye.png" alt="Logo" ref="interactive"/>
+        </div>
+      </div>
+    )
+  },
+  getInitialState: function () {
+    return {
+      alpha: 0,
+      beta: 0,
+      gamma: 0
+    }
+  },
+  componentDidMount: function () {
+    window.addEventListener('deviceorientation', this.onDeviseOrientation);
+  },
+  onDeviseOrientation: function (event) {
+    this.setState({
+      alpha: event.alpha,
+      beta: event.beta,
+      gamma: event.gamma
+    });
+  }
 });
 
-//$(function(){
-//	var iframe = $('#frames');
-//	debugger
-//
-//	iframe.on('load',function (e){
-//		iframe.on('scroll', function(e){
-//			debugger
-//		})
-//	});
-//});
-
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
