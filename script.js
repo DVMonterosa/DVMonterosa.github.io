@@ -23,15 +23,15 @@ let App = React.createClass({
         <div className="logger-1">
           <p>Acceleration</p>
           <p>
-            x: {this.state.x}
+            x: {this.state.x.toFixed(2)}
           </p>
 
           <p>
-            y: {this.state.y}
+            y: {this.state.y.toFixed(2)}
           </p>
 
           <p>
-            z: {this.state.z}
+            z: {this.state.z.toFixed(2)}
           </p>
 
         </div>
@@ -40,15 +40,15 @@ let App = React.createClass({
           <p>AccelerationIncludingGravity</p>
 
           <p>
-            x: {this.state.x_g}
+            x: {this.state.x_g.toFixed(2)}
           </p>
 
           <p>
-            y: {this.state.y_g}
+            y: {this.state.y_g.toFixed(2)}
           </p>
 
           <p>
-            z: {this.state.z_g}
+            z: {this.state.z_g.toFixed(2)}
           </p>
 
         </div>
@@ -131,7 +131,7 @@ cos: {this.cos(this.state.gamma)}
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.setState({
-      shiftX: this.cos(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
+      shiftX: this.sin(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
       shiftY: this.sin(beta) * NIMBLE_RANGE
     });
 
