@@ -21,46 +21,36 @@ let App = React.createClass({
     return (
       <div className="wrapper">
         <div className="logger-1">
+          <p>Acceleration</p>
           <p>
-            ALPHA: {this.state.alpha}
+            x: {this.state.x}
           </p>
 
           <p>
-            cos: {this.cos(this.state.alpha)}
+            y: {this.state.y}
           </p>
 
           <p>
-            sin: {this.sin(this.state.alpha)}
-          </p>
-
-          <br></br>
-
-          <p>
-            BETA: {this.state.beta}
-          </p>
-
-          <p>
-            cos: {this.cos(this.state.beta)}
-          </p>
-
-          <p>
-            sin: {this.sin(this.state.beta)}
+            z: {this.state.z}
           </p>
 
         </div>
 
         <div className="logger-2">
+          <p>AccelerationIncludingGravity</p>
+
           <p>
-            GAMMA: {this.state.gamma}
+            x: {this.state.x_g}
           </p>
 
           <p>
-            cos: {this.cos(this.state.gamma)}
+            y: {this.state.y_g}
           </p>
 
           <p>
-            sin: {this.sin(this.state.gamma)}
+            z: {this.state.z_g}
           </p>
+
         </div>
         <div className="nimble"
              style={{transform: `translate3d(${-this.state.shiftX}px, ${-this.state.shiftY}px, 0)`}}>
@@ -71,53 +61,79 @@ let App = React.createClass({
       </div>
     )
   },
+/*
 
+ <p>
+ ALPHA: {this.state.alpha}
+ </p>
+
+ <p>
+ cos: {this.cos(this.state.alpha)}
+ </p>
+
+ <p>
+ sin: {this.sin(this.state.alpha)}
+ </p>
+
+ <br></br>
+
+ <p>
+ BETA: {this.state.beta}
+ </p>
+
+ <p>
+ cos: {this.cos(this.state.beta)}
+ </p>
+
+ <p>
+ sin: {this.sin(this.state.beta)}
+ </p>
+
+<p>
+  GAMMA: {this.state.gamma}
+</p>
+
+<p>
+cos: {this.cos(this.state.gamma)}
+</p>
+
+  <p>
+    sin: {this.sin(this.state.gamma)}
+  </p>*/
   getInitialState: function () {
     return {
       alpha: 0,
       beta: 0,
       gamma: 0,
       shiftX: 0,
-      shiftY: 0
+      shiftY: 0,
+      x_g: 0,
+      y_g: 0,
+      z_g: 0,
+      x: 0,
+      y: 0,
+      z: 0
     }
   },
   componentDidMount: function () {
     window.addEventListener('deviceorientation', this.onDeviseOrientation);
+    window.addEventListener('devicemotion', this.onDeviceMotion);
+  },
+  onDeviceMotion: function ({acceleration, accelerationIncludingGravity}) {
+    this.setState({
+      x_g: accelerationIncludingGravity.x,
+      y_g: accelerationIncludingGravity.y,
+      z_g: accelerationIncludingGravity.z,
+      x: acceleration.x,
+      y: acceleration.y,
+      z: acceleration.z
+    })
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.setState({
       shiftX: this.cos(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
       shiftY: this.sin(beta) * NIMBLE_RANGE
     });
-    /*
-     this.frame = requestAnimationFrame(()=> {
-
-     let shiftBeta;
-     let shiftGamma;
-
-     if ((Math.abs(beta) < 70)) {
-     shiftGamma = this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-     } else if (Math.abs(beta) > 110) {
-     shiftGamma = -this.getDegreeSin(gamma * 2) * NIMBLE_RANGE;
-     } else {
-     return;
-     }
-
-     shiftBeta = this.getDegreeSin(beta) * NIMBLE_RANGE;
-
-     if (window.orientation) {
-     this.setState({
-     shiftX: shiftBeta,
-     shiftY: shiftGamma
-     });
-     } else {
-     this.setState({
-     shiftY: shiftBeta,
-     shiftX: shiftGamma
-     });
-     }
-     });
-     */
 
     this.setState({
       alpha: Math.round(alpha),
