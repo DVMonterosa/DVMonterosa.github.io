@@ -86,7 +86,7 @@ let App = React.createClass({
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
     this.setState({
-      shiftX: this.cos((gamma + 90) * 2) * NIMBLE_RANGE * this.cos(beta),
+      shiftX: this.cos(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
       shiftY: this.sin(beta) * NIMBLE_RANGE
     });
     /*
