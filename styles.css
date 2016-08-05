@@ -45,6 +45,30 @@ body {
     height: 100%;
 }
 
+@media (max-width: 480px) {
+    .img_wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.imageWithLink {
+    background: url(http://d1e2xd55don6jr.cloudfront.net/assets/48/48b3df51-964f-4aa9-89d7-47076af50e1d/4/Banner.jpg) no-repeat;
+    height: 72px;
+    background-size: contain;
+}
+
+@media (max-width: 480px) {
+    .imageWithLink {
+        height: 60px;
+    }
+}
+
+@media (max-width: 320px) {
+    .imageWithLink {
+        height: 45px;
+    }
+}
 
 .logger-1, .logger-2 {
     position: fixed;
