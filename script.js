@@ -121,12 +121,12 @@ cos: {this.cos(this.state.gamma)}
   },
   onDeviceMotion: function ({acceleration, accelerationIncludingGravity}) {
     this.setState({
-      x_g: accelerationIncludingGravity.x,
-      y_g: accelerationIncludingGravity.y,
-      z_g: accelerationIncludingGravity.z,
-      x: acceleration.x,
-      y: acceleration.y,
-      z: acceleration.z
+      x_g: accelerationIncludingGravity.x.toFixed(2),
+      y_g: accelerationIncludingGravity.y.toFixed(2),
+      z_g: accelerationIncludingGravity.z.toFixed(2),
+      x: acceleration.x.toFixed(2),
+      y: acceleration.y.toFixed(2),
+      z: acceleration.z.toFixed(2)
     })
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
