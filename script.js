@@ -23,15 +23,15 @@ let App = React.createClass({
         <div className="logger-1">
           <p>Acceleration</p>
           <p>
-            x: {this.state.x.toFixed(2)}
+            x: {this.state.x}
           </p>
 
           <p>
-            y: {this.state.y.toFixed(2)}
+            y: {this.state.y}
           </p>
 
           <p>
-            z: {this.state.z.toFixed(2)}
+            z: {this.state.z}
           </p>
 
         </div>
@@ -40,15 +40,15 @@ let App = React.createClass({
           <p>AccelerationIncludingGravity</p>
 
           <p>
-            x: {this.state.x_g.toFixed(2)}
+            x: {this.state.x_g}
           </p>
 
           <p>
-            y: {this.state.y_g.toFixed(2)}
+            y: {this.state.y_g}
           </p>
 
           <p>
-            z: {this.state.z_g.toFixed(2)}
+            z: {this.state.z_g}
           </p>
 
         </div>
