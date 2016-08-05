@@ -20,38 +20,9 @@ let App = React.createClass({
   render: function () {
     return (
       <div className="wrapper">
-        <div className="logger-1">
-          <p>Acceleration</p>
-          <p>
-            x: {this.state.x}
-          </p>
 
-          <p>
-            y: {this.state.y}
-          </p>
 
-          <p>
-            z: {this.state.z}
-          </p>
 
-        </div>
-
-        <div className="logger-2">
-          <p>AccelerationIncludingGravity</p>
-
-          <p>
-            x: {this.state.x_g}
-          </p>
-
-          <p>
-            y: {this.state.y_g}
-          </p>
-
-          <p>
-            z: {this.state.z_g}
-          </p>
-
-        </div>
         <div className="nimble"
              style={{transform: `translate3d(${-this.state.shiftX}px, ${-this.state.shiftY}px, 0)`}}>
           <div className="img_wrapper">
@@ -63,6 +34,38 @@ let App = React.createClass({
   },
 /*
 
+ <div className="logger-1">
+ <p>Acceleration</p>
+ <p>
+ x: {this.state.x}
+ </p>
+
+ <p>
+ y: {this.state.y}
+ </p>
+
+ <p>
+ z: {this.state.z}
+ </p>
+
+ </div>
+
+ <div className="logger-2">
+ <p>AccelerationIncludingGravity</p>
+
+ <p>
+ x: {this.state.x_g}
+ </p>
+
+ <p>
+ y: {this.state.y_g}
+ </p>
+
+ <p>
+ z: {this.state.z_g}
+ </p>
+
+ </div>
  <p>
  ALPHA: {this.state.alpha}
  </p>
@@ -121,25 +124,29 @@ cos: {this.cos(this.state.gamma)}
   },
   onDeviceMotion: function ({acceleration, accelerationIncludingGravity}) {
     this.setState({
-      x_g: (accelerationIncludingGravity.x || 0).toFixed(2),
-      y_g: (accelerationIncludingGravity.y || 0).toFixed(2),
-      z_g: (accelerationIncludingGravity.z || 0).toFixed(2),
-      x: (acceleration.x || 0).toFixed(2),
-      y: (acceleration.y || 0).toFixed(2),
-      z: (acceleration.z || 0).toFixed(2)
-    })
+      shiftX: NIMBLE_RANGE * (accelerationIncludingGravity.x || 0).toFixed(2) / 10 ,
+      shiftY: NIMBLE_RANGE * (accelerationIncludingGravity.y || 0).toFixed(2) / 10
+    });
+    //this.setState({
+    //  x_g: (accelerationIncludingGravity.x || 0).toFixed(2),
+    //  y_g: (accelerationIncludingGravity.y || 0).toFixed(2),
+    //  z_g: (accelerationIncludingGravity.z || 0).toFixed(2),
+    //  x: (acceleration.x || 0).toFixed(2),
+    //  y: (acceleration.y || 0).toFixed(2),
+    //  z: (acceleration.z || 0).toFixed(2)
+    //})
   },
   onDeviseOrientation: function ({alpha,beta,gamma}) {
-    this.setState({
-      shiftX: this.sin(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
-      shiftY: this.sin(beta) * NIMBLE_RANGE
-    });
-
-    this.setState({
-      alpha: Math.round(alpha),
-      beta: Math.round(beta),
-      gamma: Math.round(2 * gamma)
-    });
+    //this.setState({
+    //  shiftX: this.sin(gamma * 2) * NIMBLE_RANGE * this.cos(beta),
+    //  shiftY: this.sin(beta) * NIMBLE_RANGE
+    //});
+    //
+    //this.setState({
+    //  alpha: Math.round(alpha),
+    //  beta: Math.round(beta),
+    //  gamma: Math.round(2 * gamma)
+    //});
   }
 });
 
