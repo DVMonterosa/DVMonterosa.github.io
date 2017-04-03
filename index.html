@@ -24,26 +24,12 @@
     <title>Test page with iframe</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
-    <script src="react.min.js"></script>
-    <script src="react-dom.js"></script>
-    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
-    <script type="text/babel" src="script.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-<div id="app"></div>
-<h1 id="orientation">orientationchange Not Supported on this Device.</h1>
-<script>
-    // Bind an event to window.orientationchange that, when the device is turned,
-    // gets the orientation and displays it to on screen.
-    $( window ).on( "orientationchange", function( event ) {
-        $( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
-    });
-
-    // You can also manually force this event to fire.
-    $( window ).orientationchange();
-</script>
+    <div class="l-game">
+        <iframe style="display: block"
+        class="l-game__iframe"
+        src="https://apps.lvis.tv/sic/just-duet/latest/app.html?h=d23hnpp2a5k7p7.cloudfront.net&p=5fb4435f-ba37-4337-b1f0-78d9d5a2e447"></iframe>
+    </div>
 </body>
 </html>
