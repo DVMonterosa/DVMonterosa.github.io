@@ -50,7 +50,7 @@
 		var userContainer = document.querySelector('#user-id');
 
 		MessengerExtensions.getUserID(function (uids) {
-			userContainer.textContent = "success: " + JSON.stringify(error)
+			userContainer.textContent = "success: " + JSON.stringify(uids)
 		}, function (error) {
 			userContainer.textContent = "error: " + JSON.stringify(error)
 		});
